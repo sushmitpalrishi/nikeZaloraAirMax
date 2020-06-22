@@ -1,0 +1,495 @@
+
+// variable
+$nike-text-color:#265f62;
+$color-orange:#ed783f;
+
+$color-grey:#cdece9;
+$color-red:#ba4242;
+$color-dark-grey:#265f62;
+
+
+/* fonts family */
+@mixin font-face($font-family, $file-path, $font-style) {
+    @font-face {
+      font-family: $font-family;
+        src: url('#{$file-path}.eot');
+        src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+             url('#{$file-path}.woff') format('woff'),
+             url('#{$file-path}.ttf') format('truetype'),
+             url('#{$file-path}.svg##{$font-family}') format('svg');
+      font-style: $font-style;
+    }
+    // Chrome for Windows rendering fix
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      @font-face {
+        font-family: $font-family;
+          src: url('#{$file-path}.svg##{$font-family}') format('svg');
+      }
+    }
+  }
+
+
+  
+  
+  @include font-face(Apercu, '../fonts/Apercu/Apercu', normal);
+  @include font-face(Apercu-Light, '../fonts/Apercu-Light/Apercu-Light', normal); 
+
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Apercu";
+}   
+
+
+
+.fluid{
+    width:100%;
+    display:block;
+}
+
+.dis{
+    &-tab{
+        display:table;
+        height:100%;
+        width:100%;
+    }
+
+    &-tc{
+        display:table-cell;
+        vertical-align: middle;
+    }
+}
+
+.pos-abs{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+
+.carousel-container{
+    z-index: 2;
+        -webkit-transition:all .2s;
+            -moz-transition:all .2s;
+            -ms-transition:all .2s;
+            transition:all .2s;
+    }
+    
+    
+    
+    
+    .section-title{
+        font-size:94px;
+        color:#fff;
+        line-height:1;
+        text-shadow: 6px 6px 0px #ed783f;
+
+     
+    
+    
+    }
+    
+    
+    
+    
+    
+    .carousel-active{
+        .carousel-container{
+            z-index: 100;
+        }
+    }
+    
+    .complete-img-container{
+        z-index: 4;
+    }
+    
+    .complete-img{
+        position: relative;
+        z-index: 3;
+    }
+
+// preloader css
+
+.content-preloader{
+    position:absolute;
+    top:0%;
+    left:0%;
+    width:100%;
+    height:100%;
+    background-color:#ececec;
+    z-index: 1000;
+    -webkit-transition:all .2s;
+        -moz-transition:all .2s;
+        -ms-transition:all .2s;
+        transition:all .2s;
+}
+
+.content-preloader-img{
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    -ms-transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%);
+    max-width: 60px;
+}
+
+
+.loaded{
+    .content-preloader{
+        opacity: 0;
+        visibility: hidden;
+
+    }
+}
+
+// tutorial-section
+
+.tutorial-section{
+    .site-btn,.carousel-arrow{
+        cursor: default;
+    }
+}
+
+
+.border {
+    position: absolute;
+    display: block;
+    z-index: 5;
+}
+.instructions-copy-inner-wrap{
+    position: relative;
+}
+.left-content{
+    .instructions-copy-wrap{
+        background-image: url("../images/instructions-bg.png");
+        padding:180px 20px;
+      
+        .border{
+            &-top{
+                top:0;
+                right:0;
+                width:10%;
+                height:8px;
+                background-color:$color-dark-grey;
+    
+                &-right{
+                    top:0;
+                    right:0;
+                    width:8px;
+                    height:40%;
+                    background-color:$color-grey;
+                }
+            }
+    
+            &-bottom{
+                bottom:0;
+                left:0;
+                width:10%;
+                height:8px;
+                background-color:$color-dark-grey;
+                
+
+                &-left{
+                    bottom:0;
+                    left:0;
+                    width:8px;
+                    height:40%;
+                    background-color:$color-red;
+                }
+            }
+        }
+    }
+}
+
+
+.instruction-copy{
+    padding:40px;
+}
+// typography
+
+
+.tout-copy{
+    color:$nike-text-color;
+    font-size:18px;
+    text-align:center;
+    background-color:#fff;
+    padding:20px 10px;
+    // padding-bottom:15px;
+    line-height:1.4;
+    font-family:"Apercu-Light";
+    margin-top:20px; 
+}
+
+.site-btn{
+    display:inline-block;
+    padding:12px 18px;
+    // padding-bottom:10px;
+    line-height:1;
+    font-size:22px;
+    color:$nike-text-color;
+    background-color:#cdece9;
+    margin-top:21px;
+    // text-transform:uppercase;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+// layout 
+
+
+.tout-wrap{
+    width:100%;
+    max-width:426px;
+    margin:0 auto;
+    text-align:center;
+    // margin-top:10px;
+}
+
+.instructions-copy-wrap{
+    width:100%;
+    max-width:413px;
+    margin:0 auto;
+    text-align:center;
+
+}
+
+.init{
+    .complete-img{
+        -webkit-filter: blur(3px);
+        filter: blur(3px);
+        -webkit-transition:all .2s;
+        -moz-transition:all .2s;
+        -ms-transition:all .2s;
+        transition:all .2s;
+    }
+}
+
+
+
+// tutorial section css start
+.tutorial-on{
+    .tutorial-section{
+        -webkit-transform:translateY(0%);
+        -moz-transform:translateY(0%);
+        -ms-transform:translateY(0%);
+        transform:translateY(0%);
+    }
+}
+.tutorial-section{ 
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.8);
+    z-index: 100;
+    -webkit-transform:translateY(100%);
+    -moz-transform:translateY(100%);
+    -ms-transform:translateY(100%);
+    transform:translateY(100%);
+    
+
+    -webkit-transition:all .4s cubic-bezier(.455,.03,.515,.955);
+        -moz-transition:all .4s cubic-bezier(.455,.03,.515,.955);
+        -ms-transition:all .4s cubic-bezier(.455,.03,.515,.955);
+        transition:all .4s cubic-bezier(.455,.03,.515,.955);
+        // opacity: 0;
+        // visibility: hidden;
+}
+
+.tutorial-container {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    text-align:center;
+}
+.tutorial-carousel{
+    position: relative;
+    width:100%;
+    float:left;
+
+    &:last-child{
+        .tutorial-carousel-list{
+            &:after{
+                display: none;
+            }
+        }
+    }
+}
+
+.tutorial-carousel-list{
+    width: 200%;
+    position: relative;
+    float:left;
+    &:after{
+        content:"";
+        display: block;
+        position: absolute;
+        bottom:0;
+        height:2px;
+        background-color:#fff;
+        width:100%;
+        left:0;
+    }
+
+    
+    .carousel-item{
+        width:50%;
+        float:left;
+    }
+}
+
+#swipeRight{
+    transform:translateX(-50%);
+}
+
+.swipe-hands{
+    position: absolute;
+    top:10%;
+    // margin-top:40px;
+    width: 50px;
+    height: 40px;
+    
+    display: inline-block;
+    background-image: url(../images/swipe-sprite.png);
+    background-size: 150px;
+    background-repeat: no-repeat;
+    background-position: -55px 0;
+
+    &.swipe-left{
+        
+        background-position: 0 0;
+        
+    }
+
+    &.swipe-right{
+        
+        background-position: -107px 0;
+    }
+
+   
+}
+#close-btn{
+    position:absolute;
+    top:30px;
+    right:30px;
+    width:32px;
+    height:32px;
+    border:2px solid #fff;
+    border-radius:100%;
+    cursor:pointer;
+    z-index: 100;
+    
+    &:before,&:after{
+        content:"";
+        display:block;
+        width: 16px;
+        top:50%;
+        border-top: 2px solid #fff;
+        position: absolute;
+        left: 50%;
+        margin-left: -8px;
+        position: absolute;
+    }
+
+    &:before{
+        -webkit-transform:rotate(45deg);
+        -moz-transform:rotate(45deg);
+        -ms-transform:rotate(45deg);
+        transform:rotate(45deg);
+    }
+    &:after{
+        -webkit-transform:rotate(135deg);
+        -moz-transform:rotate(135deg);
+        -ms-transform:rotate(135deg);
+        transform:rotate(135deg);
+    }
+
+}
+
+// tutorial section css end
+
+
+
+
+.instruction-copy{
+    font-size:22px;
+    color:$nike-text-color;
+    background-color:#fff;
+    padding:40px;
+    // text-transform:uppercase;
+    margin-bottom:3px;
+    line-height:1;
+    font-family: "Apercu-Light";
+    // padding-bottom:5px;
+}
+
+.carousel{
+    position:relative;
+
+    &:after{
+        content:"";
+        display: block;
+        position: absolute;
+        bottom:0;
+        height:2px;
+        background-color:#fff;
+        width:100%;
+        left:0;
+    }
+
+    &:last-child{
+        &:before{
+            display:none;
+        }
+    }
+}
+
+.carousel-arrow{
+    max-width:32px;
+    position:absolute;
+    top:50%;
+    -webkit-transform:translateY(-50%);
+    -moz-transform:translateY(-50%);
+    -ms-transform:translateY(-50%);
+    transform:translateY(-50%);
+    cursor:pointer;
+
+
+    &.prev-btn{
+        
+        left:20px;
+        
+        
+    }
+
+
+
+    &.next-btn{
+       
+        right:20px;
+        -webkit-transform:translateY(-50%) rotate(180deg);
+        -moz-transform:translateY(-50%) rotate(180deg);
+        -ms-transform:translateY(-50%) rotate(180deg);
+        transform:translateY(-50%) rotate(180deg);
+        
+    }
+}
+
+
+.title-unit{
+    max-width:205px;
+    margin:0 auto;
+}

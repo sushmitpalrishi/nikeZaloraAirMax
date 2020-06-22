@@ -1,0 +1,68 @@
+
+/*new css from previous prototype*/
+ 
+.shop-the-look-section {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+ 
+.slideshow {
+    overflow: hidden;
+    position: relative;
+}
+
+.slideshow-slide {
+    width: 100%;
+    top: 0;
+    position: absolute;
+}
+
+.slideshow-slide .slideshow-caption {
+    bottom: 1em;
+    font-size: .8em;
+    color: #444;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+@media(max-width: 800px) {
+    .slideshow-slide .slideshow-caption {
+        font-size: .75em;
+    }
+}
+
+@media(max-width: 400px) {
+    .slideshow-slide .slideshow-caption {
+        font-size: .6em;
+    }
+}
+
+.slideshow-slide img {
+    width: 100%;
+}
+
+.slideshow-slide.inactive {
+    display: block;
+}
+
+.slideshow-slide.position-left {
+    top: 0;
+    left: -100%;
+}
+
+.slideshow-slide.position-right {
+    top: 0;
+    right: -100%;
+    position: absolute;
+}
+
+.slideshow-control {
+    height: 100%;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    width: 10%;
+    z-index: 1;
+}
